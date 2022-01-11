@@ -1,0 +1,19 @@
+class Solution{
+    public:
+    // n: input to count the number of set bits
+    //Function to return sum of count of set bits in the integers from 1 to n.
+    int countSetBits(int n)
+    {
+        // Your logic here
+        int count = 0, extras = 0;
+        for (int i = 0; i < 31; i++)
+        {
+            if (n & (1 << i))
+            {
+                count += extras + ((((1 << i) / 2) * i) + 1);
+                extras += (1 << i); 
+            }
+        }
+        return count; 
+    }
+};
